@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>술래잡기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="c" width="960" height="540"></canvas>
+  <div id="ui">
+    <div class="card" id="menu">
+      <h1>🏃 술래잡기</h1>
+      <input id="name" placeholder="닉네임" maxlength="8">
+      <button id="create">방 만들기</button>
+      <div class="row"><input id="code" placeholder="방 코드" maxlength="5"><button id="join">참가</button></div>
+      <p id="msg"></p>
+      <small>PC: ← → 이동 · Space 점프<br>모바일: 화면 버튼</small>
+    </div>
+    <div class="card" id="lobby" hidden>
+      <small>방 코드 (누르면 복사)</small>
+      <h2 id="room"></h2>
+      <div id="plist"></div>
+      <div id="maps"></div>
+      <button id="start">게임 시작</button>
+      <p id="wait"></p>
+    </div>
+  </div>
+  <div id="pad">
+    <div class="grp">
+      <button data-k="ArrowLeft">◀</button>
+      <button data-k="ArrowRight">▶</button>
+    </div>
+    <div class="grp">
+      <button data-k="Space" class="jump">점프</button>
+    </div>
+  </div>
+  <div id="rotate">📱 화면을 가로로 돌려주세요</div>
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

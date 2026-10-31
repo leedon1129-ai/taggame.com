@@ -1,0 +1,48 @@
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{touch-action:none}
+body{margin:0;background:#0b0d17;height:100vh;height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:system-ui,'Malgun Gothic',sans-serif;-webkit-user-select:none;user-select:none}
+canvas{display:block;background:#000;border-radius:12px;box-shadow:0 0 60px #0008}
+#ui{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10}
+.card{pointer-events:auto;background:#111827ee;color:#fff;padding:26px 30px;border-radius:18px;width:340px;max-width:94vw;max-height:94vh;overflow:auto;text-align:center;border:1px solid #fff2;backdrop-filter:blur(8px)}
+.card[hidden]{display:none}
+h1{margin:0 0 14px}
+h2{margin:4px 0 12px;font-size:44px;letter-spacing:8px;color:#fbbf24;cursor:pointer}
+input{width:100%;padding:11px;border-radius:10px;border:1px solid #fff3;background:#0006;color:#fff;font-size:16px;margin-bottom:10px;text-align:center;-webkit-user-select:text;user-select:text}
+button{padding:11px 16px;border:0;border-radius:10px;background:#6366f1;color:#fff;font-size:16px;font-weight:700;cursor:pointer;width:100%;margin-bottom:10px}
+button:hover{filter:brightness(1.15)}
+button:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:8px}
+.row input{flex:1}
+.row button{width:90px}
+#msg,#wait{color:#fca5a5;font-size:13px;min-height:16px;margin:4px 0}
+small{color:#9ca3af}
+#plist{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px}
+.pl{padding:4px 10px;border-radius:20px;font-size:14px;font-weight:700;color:#111}
+#maps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+#maps button{margin:0;background:#1f2937;border:2px solid transparent;font-size:14px}
+#maps button.on{border-color:#fbbf24}
+
+/* 화면 낮은 기기(가로 모드 폰) */
+@media (max-height:520px){
+  .card{padding:12px 18px;width:320px}
+  h1{font-size:22px;margin:0 0 8px}
+  h2{font-size:30px;margin:2px 0 6px}
+  input,button{padding:8px 12px;font-size:14px;margin-bottom:6px}
+  #maps{margin-bottom:6px}
+  #plist{margin-bottom:8px}
+}
+
+/* 모바일 터치 버튼 (터치 감지 시에만 표시) */
+#pad{display:none;position:fixed;left:0;right:0;bottom:0;z-index:5;justify-content:space-between;align-items:flex-end;
+  padding:0 max(18px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));pointer-events:none}
+#pad .grp{display:flex;gap:14px}
+#pad button{pointer-events:auto;width:84px;height:84px;border-radius:50%;margin:0;padding:0;font-size:28px;
+  background:#ffffff33;border:2px solid #fff6;color:#fff;touch-action:none;backdrop-filter:blur(4px)}
+#pad button.jump{width:100px;height:100px;font-size:20px;background:#6366f188}
+#pad button.on{background:#fbbf24aa}
+body.touch[data-ph="play"] #pad,
+body.touch[data-ph="end"] #pad{display:flex}
+
+/* 세로 모드 안내 (게임 중에만) */
+#rotate{display:none;position:fixed;inset:0;z-index:50;background:#0b0d17;color:#fff;font-size:22px;font-weight:700;align-items:center;justify-content:center;text-align:center}
+@media (orientation:portrait){body.touch[data-ph="play"] #rotate,body.touch[data-ph="end"] #rotate{display:flex}}
